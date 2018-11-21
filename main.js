@@ -5,15 +5,8 @@ var fingerprint = null;
 
 ga(function(tracker) {
   fingerprint = tracker.get('clientId').replace('.', '');
-  setInitialStats(incrementVisits);
 });
 
-//
-// new Fingerprint2({excludeUserAgent: true, excludeTimezoneOffset: true, excludeTimezone: true, excludeAdBlock: true}).get(function(result, components) {
-//     fingerprint = result;
-//
-//     setInitialStats(incrementVisits);
-// })
 
 /**
  * Initial setup for fingerprint object in firebase and functions
@@ -103,6 +96,8 @@ var incrementClicks = () => {
 
     incrementClientClicks();
 };
+
+setInitialStats(incrementVisits);
 
 /**
  * Functions to change the color of the button
