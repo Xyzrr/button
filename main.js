@@ -3,11 +3,17 @@
  */
 var fingerprint = null;
 
-new Fingerprint2({excludeUserAgent: true, excludeTimezoneOffset: true, excludeTimezone: true, excludeAdBlock: true}).get(function(result, components) {
-    fingerprint = result;
+ga(function(tracker) {
+  fingerprint = tracker.get('clientId').replace('.', '');
+  setInitialStats(incrementVisits);
+});
 
-    setInitialStats(incrementVisits);
-})
+//
+// new Fingerprint2({excludeUserAgent: true, excludeTimezoneOffset: true, excludeTimezone: true, excludeAdBlock: true}).get(function(result, components) {
+//     fingerprint = result;
+//
+//     setInitialStats(incrementVisits);
+// })
 
 /**
  * Initial setup for fingerprint object in firebase and functions
@@ -23,6 +29,7 @@ var button = document.getElementById("button");
 var clickCount = document.getElementById("clicks");
 
 var setInitialStats = (incrementVisits) => {
+    console.log('here');
     firebase.database().ref('fingerprints/' + fingerprint + '/visits').once('value').then(function(snapshot){
         visits = snapshot.val();
         incrementVisits();
@@ -37,7 +44,7 @@ var setInitialStats = (incrementVisits) => {
         var fingerprints = snapshot.val();
 
         numFingerprints = Object.keys(fingerprints).length;
-        
+
         if (fingerprints[fingerprint]) {
             numLessFingerprints = Object.keys(fingerprints).filter(key => (fingerprints[key]["clicks"] || 0) < fingerprints[fingerprint]["clicks"]).length;
         }
@@ -50,7 +57,7 @@ var setInitialStats = (incrementVisits) => {
 /*
 * Incrementing functions (for visits and clicks)
 */
-var incrementVisits = () => { 
+var incrementVisits = () => {
     firebase.database().ref('fingerprints/' + fingerprint + '/visits').set(
         visits = (visits + 1) || 1
     );
@@ -85,7 +92,7 @@ clicksRef.on("value", function(snapshot) {
 var incrementClicks = () => {
     var clicks = parseInt(document.getElementById("totalClicks").innerHTML);
     clicks += 1;
-    
+
     // Update counts in databse and html
     clicksRef.set(clicks = clicks);
 
@@ -139,7 +146,7 @@ setTimeout(decreaseColor, 50);
  * lerpColor('#000000', '#ffffff', 0.5)
  * @returns {String}
  */
-function lerpColor(a, b, amount) { 
+function lerpColor(a, b, amount) {
 
     var ah = parseInt(a.replace(/#/g, ''), 16),
         ar = ah >> 16, ag = ah >> 8 & 0xff, ab = ah & 0xff,
