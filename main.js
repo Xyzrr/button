@@ -65,6 +65,8 @@ var incrementClientClicks = () => {
     clickCount.innerHTML = clientClicks;
 };
 
+setInitialStats(incrementVisits);
+
 /**
  * Initial setup to get reference for firebase value of totalClicks
  */
@@ -96,8 +98,6 @@ var incrementClicks = () => {
 
     incrementClientClicks();
 };
-
-setInitialStats(incrementVisits);
 
 /**
  * Functions to change the color of the button
