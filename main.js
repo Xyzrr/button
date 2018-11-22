@@ -1,14 +1,4 @@
 /**
- * Object to create a fingerprint that uniquely identifies devices
- */
-var fingerprint = null;
-
-ga(function(tracker) {
-  fingerprint = tracker.get('clientId').replace('.', '');
-});
-
-
-/**
  * Initial setup for fingerprint object in firebase and functions
  * to increment visit and client clicks count
  */
@@ -22,7 +12,6 @@ var button = document.getElementById("button");
 var clickCount = document.getElementById("clicks");
 
 var setInitialStats = (incrementVisits) => {
-    console.log('here');
     firebase.database().ref('fingerprints/' + fingerprint + '/visits').once('value').then(function(snapshot){
         visits = snapshot.val();
         incrementVisits();
@@ -65,7 +54,16 @@ var incrementClientClicks = () => {
     clickCount.innerHTML = clientClicks;
 };
 
-setInitialStats(incrementVisits);
+/**
+ * Object to create a fingerprint that uniquely identifies devices
+ */
+var fingerprint = null;
+
+ga(function(tracker) {
+  fingerprint = tracker.get('clientId').replace('.', '');
+  setInitialStats(incrementVisits);
+});
+
 
 /**
  * Initial setup to get reference for firebase value of totalClicks
