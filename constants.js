@@ -1,0 +1,2 @@
+LOGIN_CLICKS = 300;
+LOGIN_TOGGLE = false;

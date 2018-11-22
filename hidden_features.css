@@ -1,0 +1,74 @@
+.login-feature {
+  display: inline;
+  position: absolute;
+  top: 0;
+  right: -355px;
+  display: inline;
+  opacity: 0;
+  transition: all 2s ease;
+  margin: 10px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.login-feature.show {
+    opacity: 1;
+}
+
+.login-feature.slide-out {
+    right: 0px;
+}
+
+#login {
+    vertical-align: middle;
+    height: 30px;
+    width: 30px;
+}
+
+#username {
+    height: 30px;
+    width: 125px;
+    margin-left: 10px;
+    border-radius: 15px;
+    border-width: 2px;
+    border-color: black;
+    padding-left: 5px;
+}
+
+#password {
+    height: 30px;
+    width: 125px;
+    margin-left: 10px;
+    border-radius: 15px;
+    border-width: 2px;
+    border-color: black;
+    padding-left: 5px;
+}
+
+#go {
+    position: relative;
+    top: -2px;
+    margin-left: 10px;
+    margin-right: 5px;
+    appearance: none;
+    border: 0;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    background-color: #4CAF50;
+    border: none;
+    box-shadow: -2px 2px #09893c;
+    touch-action: manipulation;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#go:active {
+    box-shadow: -0.5px 0.5px #09893c;
+    transform: translate(-2px, 2px);
+}

@@ -52,6 +52,7 @@ var incrementClientClicks = () => {
     );
 
     clickCount.innerHTML = clientClicks;
+    addHiddenFeatures(clientClicks);
 };
 
 /**
