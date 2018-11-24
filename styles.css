@@ -2,6 +2,7 @@ html, body {
     height: 100%;
     font-family: 'Quicksand', sans-serif;
     font-weight: 400;
+    overflow: hidden;
 }
 
 html {
