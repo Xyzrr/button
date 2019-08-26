@@ -1,74 +1,83 @@
-html, body {
-    height: 100%;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 400;
-}
-  
-html {
-    display: table;
-    margin: auto;
-}
-  
+html,
 body {
-    display: table-cell;
-    vertical-align: middle;
-    background-color: #fff;
+  height: 100%;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 400;
 }
-  
+
+html {
+  display: table;
+  margin: auto;
+}
+
+body {
+  display: table-cell;
+  vertical-align: middle;
+  background-color: #fff;
+}
+
 .button-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .text-container {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 300px;
-    width: 300px;
-    font-size: 54px;
-    font-weight: 500;
-    cursor: pointer;
-    outline: none;
-    color: #09893c;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 50%;
-    box-shadow: -13px 13px;
-    touch-action: manipulation;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  width: 300px;
+  font-size: 54px;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  color: #09893c;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 50%;
+  box-shadow: -13px 13px;
+  touch-action: manipulation;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .button:active {
-    box-shadow: -3px 3px;
-    transform: translate(-10px, 10px);
+  box-shadow: -3px 3px;
+  transform: translate(-10px, 10px);
+}
+
+.button.suspicious {
+  pointer-events: none;
+  background-color: darkgray !important;
+  color: gray !important;
+  box-shadow: -3px 3px;
+  transform: translate(-10px, 10px);
 }
 
 #percentile {
-    margin-top: 30px;
-    font-size: 20px;
+  margin-top: 30px;
+  font-size: 20px;
 }
 
 #totalClicks {
-    margin: 0px;
-    color: gray;
-    font-size: 15px;
+  margin: 0px;
+  color: gray;
+  font-size: 15px;
 }
 
 #clicks {
-    color: #fff;
+  color: #fff;
 }
