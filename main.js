@@ -128,6 +128,9 @@ var suspicious = false;
 var suspiciousClicks = 0;
 var cheater = false;
 const checkForTrust = e => {
+  if (!e.isTrusted) {
+    cheaterDetected();
+  }
   if (e.clientX === lastX && e.clientY === lastY) {
     consecutiveSameSpotClicks += 1;
     if (consecutiveSameSpotClicks > 200) {
@@ -144,6 +147,9 @@ const checkForTrust = e => {
 };
 
 const cheaterDetected = () => {
+  button.classList.add("suspicious");
+  document.getElementById("textContainer").style.display = "none";
+  document.getElementById("cheatTest").style.display = "block";
   document.getElementById("cheatTest").innerHTML = "Cheater :(";
   firebase
     .database()
